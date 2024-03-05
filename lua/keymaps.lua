@@ -1,6 +1,37 @@
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
+-- Create keymaps to move around in the explorer etc
+vim.keymap.set('n', '<leader>pv', vim.cmd.Ex)
+
+-- private keymaps
+-- switch with the line below
+vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
+-- switch with the line above
+vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
+-- add the line below to the current line with a white space
+vim.keymap.set('n', 'J', 'mzJ`z')
+-- scrolls down half a page and centers the cursor
+vim.keymap.set('n', '<C-d>', '<C-d>zz')
+-- scrolls up half a page and centers the cursor
+vim.keymap.set('n', '<C-u>', '<C-u>zz')
+-- searches for the next pattern match and centers the cursor
+vim.keymap.set('n', 'n', 'nzzzv')
+-- searches for the previous pattern match and centers the cursor
+vim.keymap.set('n', 'N', 'Nzzzv')
+-- keeps the current buffer and lets you copy it more than once
+vim.keymap.set('x', '<leader>p', [["_dP]])
+-- leader y copies the selection into the clipboard
+vim.keymap.set({ 'n', 'v' }, '<leader>y', [["+y]])
+-- leader Y copies the line into the clipboard
+vim.keymap.set('n', '<leader>Y', [["+Y]])
+-- delete to void buffer and do not lose current buffer
+vim.keymap.set({ 'n', 'v' }, '<leader>d', [["_d]])
+vim.keymap.set('i', '<C-c>', '<Esc>')
+vim.keymap.set('n', 'Q', '<nop>')
+-- vim.keymap.set('n', '<leader>s', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+vim.keymap.set('n', '<leader>x', '<cmd>!chmod +x %<CR>', { silent = true })
+
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 vim.opt.hlsearch = true
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
