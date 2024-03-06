@@ -22,7 +22,7 @@ vim.keymap.set('n', 'N', 'Nzzzv')
 -- keeps the current buffer and lets you copy it more than once
 vim.keymap.set('x', '<leader>p', [["_dP]])
 -- leader y copies the selection into the clipboard
-vim.keymap.set({ 'n', 'v' }, '<leader>y', [["+y]])
+vim.keymap.set({ 'n', 'v' }, '<leader>y', '[y]ank selection to clipboard')
 -- leader Y copies the line into the clipboard
 vim.keymap.set('n', '<leader>Y', [["+Y]])
 -- delete to void buffer and do not lose current buffer
