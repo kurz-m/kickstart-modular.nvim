@@ -191,8 +191,12 @@ return {
         ensure_installed = {},
         automatic_installation = false,
       }
-      require('lspconfig').zls.setup {}
-      require('lspconfig').ccls.setup {}
+      require('lspconfig').zls.setup {
+        capabilities = capabilities,
+      }
+      require('lspconfig').ccls.setup {
+        capabilities = capabilities,
+      }
 
       require('mason-lspconfig').setup {
         handlers = {
