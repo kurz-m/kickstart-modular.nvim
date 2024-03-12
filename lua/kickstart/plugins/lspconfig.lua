@@ -191,9 +191,6 @@ return {
         ensure_installed = {},
         automatic_installation = false,
       }
-      require('lspconfig').zls.setup {
-        capabilities = capabilities,
-      }
       require('lspconfig').ccls.setup {
         capabilities = capabilities,
       }
