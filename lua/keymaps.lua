@@ -24,11 +24,11 @@ vim.keymap.set('x', '<leader>p', [["_dP]], { desc = 'Keep current buffer' })
 vim.keymap.set({ 'n', 'v' }, '<leader>y', '"+y', { desc = '[y]ank selection to clipboard' })
 vim.keymap.set('n', '<leader>Y', [["+Y]], { desc = '[y]ank line to clipboard' })
 -- delete to void buffer and do not lose current buffer
-vim.keymap.set({ 'n', 'v' }, '<leader>d', [["_d]])
+-- vim.keymap.set({ 'n', 'v' }, '<leader>d', [["_d]])
 vim.keymap.set('i', '<C-c>', '<Esc>')
 vim.keymap.set('n', 'Q', '<nop>')
 vim.keymap.set('n', '<leader>k', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = 'Change word under cursor' })
-vim.keymap.set('n', '<leader>x', '<cmd>!chmod +x %<CR>', { silent = true }, { desc = 'chmod +[x]' })
+vim.keymap.set('n', '<leader>x', '<cmd>!chmod +x %<CR>', { desc = 'chmod +[x]', silent = true })
 
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 vim.opt.hlsearch = true
