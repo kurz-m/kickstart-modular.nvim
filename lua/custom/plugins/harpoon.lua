@@ -74,13 +74,13 @@ return {
 
     return {
       { "<C-e>", function() toggle_telescope(harpoon:list()) end, desc = "Harpoon (Telescope)", },
-      { "<leader>a", function() harpoon:list():add() end, desc = "Harpoon: Add", },
+      { "<C-a>", function() harpoon:list():add() end, desc = "Harpoon: Add", },
+      { "<c-p>", function() harpoon:list():prev() end, desc = "Harpoon: Previous", },
+      { "<c-n>", function() harpoon:list():next() end, desc = "Harpoon: Next", },
       -- { "<C-1>", function() harpoon:list():select(1) end, },
       -- { "<C-2>", function() harpoon:list():select(2) end, },
       -- { "<C-3>", function() harpoon:list():select(3) end, },
       -- Toggle previous & next buffers stored within Harpoon list
-      -- { "<c-p>", function() harpoon:list():prev() end, desc = "Harpoon: Previous", },
-      -- { "<c-n>", function() harpoon:list():next() end, desc = "Harpoon: Next", },
     }
   end,
 }
