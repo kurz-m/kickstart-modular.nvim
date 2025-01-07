@@ -73,6 +73,7 @@ require('lazy').setup {
   require 'custom.plugins.autopairs',
   require 'custom.plugins.harpoon',
   require 'custom.plugins.git-blame',
+  -- require 'custom.plugins.zig',
 
 
   -- { import = 'custom.plugins' },
