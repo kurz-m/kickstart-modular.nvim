@@ -47,6 +47,7 @@ require('lazy').setup {
   -- require 'kickstart/plugins/catppuccin',
   -- require 'kickstart/plugins/nightowl',
   require 'kickstart/plugins/rose-pine',
+  -- require 'kickstart/plugins/github',
   --
   --
   require 'kickstart/plugins/todo-comments',
