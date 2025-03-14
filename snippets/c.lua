@@ -27,25 +27,27 @@ local ms = ls.multi_snippet
 local k = require("luasnip.nodes.key_indexer").new_key
 
 return {
-  s({ trig = "funcdox", dscr = "comment for a function" },
+  s({ trig = "funcdox", dscr = "documentation for a function" },
     fmta(
       [[
       /**
        * <brief>
+       * @<arg1>: <description1>.
+       * @<arg2>: <description2>.
        *
        * <detail>
        *
-       * \param <input> <description>
-       * \return <return_value>
-       *
+       * Return <return_value>
        */<end_position>
     ]],
       {
-        brief = i(1, "A one-line summary."),
-        detail = i(2, "A more detailed description"),
-        input = i(3, "test"),
-        description = i(4, "Description of the parameter"),
-        return_value = i(5, "Defines the return value"),
+        brief = i(1, "function_name() - Brief description of function."),
+        arg1 = i(2, "arg1"),
+        description1 = i(3, "Describe the first argument"),
+        arg2 = i(4, "arg2"),
+        description2 = i(5, "Describe the second argument"),
+        detail = i(6, "A longer description, with more discussion."),
+        return_value = i(7, "Describe the return value of function_name"),
         end_position = i(0),
       }
     )
@@ -63,6 +65,66 @@ return {
       {
         i(1, "A one-line summary."),
         i(2, "A more detailed description"),
+        i(0),
+      }
+    )
+  ),
+  s({ trig = "docstruct", dscr = "documentation for structs" },
+    fmta(
+      [[
+      /**
+       * struct <> - <>.
+       * @<>: <>.
+       * @<>: <>.
+       *
+       * <>.
+       */<>
+    ]],
+      -- The insert node is placed in the <> angle brackets
+      {
+        i(1, "struct_name"),
+        i(2, "Brief description"),
+        i(3, "member1"),
+        i(4, "Description of member1"),
+        i(5, "member2"),
+        i(6, "Description of member2"),
+        i(7, "Description of the structure"),
+        i(0),
+      }
+    )
+  ),
+  s({ trig = "inlinestruct", dscr = "documentation for inline structs" },
+    fmta(
+      [[
+      /**
+       * @<>: <>.
+       *
+       * <>.
+       */<>
+    ]],
+      -- The insert node is placed in the <> angle brackets
+      {
+        i(1, "member1"),
+        i(2, "Short description of member1"),
+        i(3, "Longer member description"),
+        i(0),
+      }
+    )
+  ),
+  s({ trig = "macrodox", dscr = "documentation of macros" },
+    fmta(
+      [[
+      /**
+       * define <> - <>.
+       *
+       * <>.
+       */<>
+    ]],
+      -- The insert node is placed in the <> angle brackets
+      {
+        i(1, "object_name"),
+        i(2, "Brief description"),
+        i(3, "Description of the object"),
         i(0),
       }
     )
