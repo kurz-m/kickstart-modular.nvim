@@ -32,12 +32,12 @@ return {
       [[
       /**
        * <brief>
-       * @<arg1>: <description1>.
-       * @<arg2>: <description2>.
+       * @param <arg1> <description1>.
+       * @param <arg2> <description2>.
        *
        * <detail>
        *
-       * Return <return_value>
+       * @return <return_value>
        */<end_position>
     ]],
       {
@@ -74,8 +74,8 @@ return {
       [[
       /**
        * struct <> - <>.
-       * @<>: <>.
-       * @<>: <>.
+       * @var <> <>.
+       * @var <> <>.
        *
        * <>.
        */<>
