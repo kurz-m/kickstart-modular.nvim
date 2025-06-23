@@ -113,6 +113,13 @@ return {
               callback = vim.lsp.buf.clear_references,
             })
           end
+
+          -- print statements
+          if client.name == 'ccls' then
+            print("ccls attached to a C file!")
+          elseif client.name == 'clangd' then
+            print("clangd attached to a c++ file!")
+          end
         end,
       })
 
@@ -135,52 +142,38 @@ return {
       local servers = {
         -- clangd = {},
         gopls = {},
-        dockerls = {},
         bashls = {},
         rust_analyzer = {},
-        -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
-        --
-        -- Some languages (like typescript) have entire language plugins that can be useful:
-        --    https://github.com/pmizio/typescript-tools.nvim
-        --
-        -- But for many setups, the LSP (`tsserver`) will work just fine
-        -- tsserver = {},
-        -- html = {},
-        --
-
+        pylsp = {},
+        clangd = {},
         lua_ls = {
-          -- cmd = {...},
-          -- filetypes { ...},
-          -- capabilities = {},
           settings = {
             Lua = {
-              runtime = { version = 'LuaJIT' },
-              workspace = {
-                checkThirdParty = false,
-                -- Tells lua_ls where to find all the Lua files that you have loaded
-                -- for your neovim configuration.
-                library = {
-                  '${3rd}/luv/library',
-                  unpack(vim.api.nvim_get_runtime_file('', true)),
+              runtime = {
+                -- Tell the language server which version of Lua you're using
+                -- (most likely LuaJIT in the case of Neovim)
+                version = 'LuaJIT',
+              },
+              diagnostics = {
+                -- Get the language server to recognize the `vim` global
+                globals = {
+                  'vim',
+                  'require'
                 },
-                -- If lua_ls is really slow on your computer, you can try this instead:
-                -- library = { vim.env.VIMRUNTIME },
               },
-              completion = {
-                callSnippet = 'Replace',
+              workspace = {
+                -- Make the server aware of Neovim runtime files
+                library = vim.api.nvim_get_runtime_file("", true),
               },
-              -- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
-              diagnostics = { disable = { 'missing-fields' } },
+              -- Do not send telemetry data containing a randomized but unique identifier
+              telemetry = {
+                enable = false,
+              },
             },
           },
         },
       }
 
-      -- Ensure the servers and tools above are installed
-      --  To check the current status of installed tools and/or manually install
-      --  other tools, you can run
-      --    :Mason
-      --
       --  You can press `g?` for help in this menu
       require('mason').setup()
 
@@ -198,6 +191,8 @@ return {
         capabilities = capabilities,
       }
       require('lspconfig').ccls.setup {
+        filetypes = { 'c', 'objc' },
+        root_markers = { '.ccls' },
         capabilities = capabilities,
       }
 
