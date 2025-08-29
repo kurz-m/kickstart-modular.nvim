@@ -140,12 +140,9 @@ return {
       --  - settings (table): Override the default settings passed when initializing the server.
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
-        -- clangd = {},
         gopls = {},
         bashls = {},
         rust_analyzer = {},
-        pylsp = {},
-        clangd = {},
         lua_ls = {
           settings = {
             Lua = {
@@ -190,11 +187,11 @@ return {
       require('lspconfig').zls.setup {
         capabilities = capabilities,
       }
-      require('lspconfig').ccls.setup {
-        filetypes = { 'c', 'objc' },
-        root_markers = { '.ccls' },
-        capabilities = capabilities,
-      }
+      -- require('lspconfig').ccls.setup {
+      --   filetypes = { 'c', 'cpp', 'objc' },
+      --   root_markers = { '.ccls' },
+      --   capabilities = capabilities,
+      -- }
 
       require('mason-lspconfig').setup {
         handlers = {

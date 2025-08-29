@@ -42,8 +42,9 @@ require('lazy').setup {
 
   -- Themes
   -- require 'kickstart/plugins/tokyonight',
-  require 'kickstart/plugins/gruvbox',
+  -- require 'kickstart/plugins/gruvbox',
   -- require 'kickstart/plugins/kanagawa',
+  require 'kickstart/plugins/cyberdream',
   -- require 'kickstart/plugins/noctis',
   -- require 'kickstart/plugins/catppuccin',
   -- require 'kickstart/plugins/nightowl',
