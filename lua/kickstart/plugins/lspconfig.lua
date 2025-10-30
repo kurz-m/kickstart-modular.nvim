@@ -184,9 +184,10 @@ return {
         ensure_installed = {},
         automatic_installation = false,
       }
-      require('lspconfig').zls.setup {
+      vim.lsp.config("zls", {
         capabilities = capabilities,
-      }
+      })
+      vim.lsp.enable({"zls"})
       -- require('lspconfig').ccls.setup {
       --   filetypes = { 'c', 'cpp', 'objc' },
       --   root_markers = { '.ccls' },
