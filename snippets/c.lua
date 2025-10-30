@@ -182,4 +182,20 @@ return {
       }
     )
   ),
+  s({ trig = "ihdl", dscr = "insert transport handle variable" },
+    fmta(
+      [[
+      struct nvme_transport_handle *hdl
+    ]],
+    {}
+    )
+  ),
+  s({ trig = "ictx", dscr = "insert global ctx variable" },
+    fmta(
+      [[
+      struct nvme_global_ctx *ctx
+    ]],
+    {}
+    )
+  ),
 }
